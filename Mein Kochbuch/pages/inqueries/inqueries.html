@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <script src="https://www.gstatic.com/firebasejs/7.9.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.9.1/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.9.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.9.1/firebase-storage.js"></script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Mein Kochbuch</title>
+    <!-- materialize icons, css and js -->
+    <link type="text/css" href="/css/materialize.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link type="text/css" href="/css/ownStyles.css" rel="stylesheet">
+    <script type="text/javascript" src="/js/materialize.min.js"></script>
+    <link rel="manifest" href="/manifest.json">
+    <!-- IOS support / safari -->
+    <link rel="apple-touch-icon" href="/icons/icon-72x72.png">
+    <link rel="apple-touch-icon" href="/icons/icon-96x96.png">
+    <link rel="apple-touch-icon" href="/icons/icon-128x128.png">
+    <link rel="apple-touch-icon" href="/icons/icon-144x144.png">
+    <link rel="apple-touch-icon" href="/icons/icon-152x152.png">
+    <link rel="apple-touch-icon" href="/icons/icon-192x192.png">
+    <link rel="apple-touch-icon" href="/icons/icon-384x384.png">
+    <link rel="apple-touch-icon" href="/icons/icon-512x512.png">
+    <!-- Theme color -->
+    <meta name="apple-mobile-web-app-status-bar" content="#aa7700">
+    <meta name="theme-color" content="#FFE1C4">
+</head>
+<body class="white">
+
+    <!-- Top navigation -->
+    <nav class="z-depth-1" style="background: #c6dfff;">
+        <div class="new-wrapper container">
+            Rezept-Anfrage         
+        </div>
+    </nav>
+
+    <!-- Help Buttons --> 
+    <div id="helpButton">
+            <a ata-html="true" class="waves-effect waves-light btn tooltipped" data-position="bottom" style="font-size: 20px; background-color: #EC6651;" data-tooltip="Auf dieser Seite werden alle Ihre Anfragen angezeigt. <p/> Sie können eine Rezept-Anfrage löschen, das Rezept weiterleiten oder die Person anrufen.<p/><li> Wenn Sie es löschen möchten, drücken Sie auf das Mülleimer-Symbol. <br/><li> Wenn Sie das Rezept weiterleiten möchten, drücken Sie auf das Weiterleiten-Symbol. <br/><li> Wenn Sie anrufen möchten, drücken Sie auf das Telefon-Symbol.">
+                <i class="material-icons right">help</i>Hilfe</a>
+    </div> 
+
+    <!-- Modal Structure -->
+    <div id="modal1" class="modal">
+        <div class="modal-content">
+            <h4><b>Nachricht löschen?</b></h4><hr>
+            <h5>Wenn Sie auf "OKAY" drücken, wird Ihr die Nachricht unwiderruflich gelöscht.</h5>
+        </div>
+        <div class="modal-footer">
+            <center>
+                <button class="btn-large modal-close red" style="margin-right: 15px;" onclick="deleteMessage()">OKAY</button>
+                <button class="btn-large modal-close grey">ABBRECHEN</button>
+            </center>
+        </div>
+    </div>
+
+    <ul class="collection" id="collection"></ul>
+    
+    <!-- Cancel Recipe -->
+    <form action="/pages/index.html">
+        <button class="button3" style="background-color: #dedede; color: black; margin-top: 50px; margin-bottom: 40px; margin-left: 200px;">
+            <i class="material-icons">arrow_back</i> Zurück</button>
+    </form>
+    
+    <script src="/js/app.js"></script>
+    <script src="/js/db.js"></script>
+    <script src="/js/auth.js"></script>
+    <script src="/js/uiMyBook.js"></script>
+    <script src="/js/uiInqueries.js"></script>
+
+</body>
+</html>

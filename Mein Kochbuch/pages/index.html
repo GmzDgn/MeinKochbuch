@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <script src="https://www.gstatic.com/firebasejs/7.9.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.9.1/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.9.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.9.1/firebase-storage.js"></script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Mein Kochbuch</title>
+    <!-- materialize icons, css and js -->
+    <link type="text/css" href="/css/materialize.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link type="text/css" href="/css/ownStyles.css" rel="stylesheet">
+    <script type="text/javascript" src="/js/materialize.min.js"></script>
+    <link rel="manifest" href="/manifest.json">
+    <!-- IOS support / safari -->
+    <link rel="apple-touch-icon" href="/icons/icon-72x72.png">
+    <link rel="apple-touch-icon" href="/icons/icon-96x96.png">
+    <link rel="apple-touch-icon" href="/icons/icon-128x128.png">
+    <link rel="apple-touch-icon" href="/icons/icon-144x144.png">
+    <link rel="apple-touch-icon" href="/icons/icon-152x152.png">
+    <link rel="apple-touch-icon" href="/icons/icon-192x192.png">
+    <link rel="apple-touch-icon" href="/icons/icon-384x384.png">
+    <link rel="apple-touch-icon" href="/icons/icon-512x512.png">
+    <!-- Theme color -->
+    <meta name="apple-mobile-web-app-status-bar" content="#aa7700">
+    <meta name="theme-color" content="#FFE1C4">
+</head>
+<body class="grey lighten-5">
+
+    <!-- Modal Structure -->
+    <div id="modalUpload" class="modal">
+        <div class="modal-content">
+        <h4><b>Rezept hochgeladen</b></h4><hr>
+        <p><h4>Ihr Rezept wurde erfolgreich hochgeladen und befindet sich in 'Mein Kochbuch'.</h4></p>
+        </div>
+        <div class="modal-footer">
+            <center>
+                <button class="btn-large modal-close grey">OKAY</button>
+            </center>
+        </div>
+    </div>
+
+    <!-- Modal Structure -->
+    <div id="modalShared" class="modal">
+        <div class="modal-content">
+        <h4><b>Rezept weitergeleitet</b></h4><hr>
+        <p><h4>Ihr Rezept wurde erfolgreich weitergeleitet.</h4></p>
+        </div>
+        <div class="modal-footer">
+            <center>
+                <button class="btn-large modal-close grey">OKAY</button>
+            </center>
+        </div>
+    </div>
+
+    <div class="grid-container">
+        <div style="background-color: #f9ffc6"><a href="/pages/addRecipe/recipes.html">Rezept erstellen</a></div>
+        <div style="background-color: #FFC6DD"><a href="/pages/myBook/myBook.html">Mein Kochbuch</a></div>
+        <div style="background-color: #c6dfff"><a href="/pages/inqueries/inqueries.html">
+            <div id="inqueries" ></div></a>
+        </div>
+        <div style="background-color: #c6ffc6"><a href="/pages/myContacts/myContacts.html">Meine Kontakte</a></div>
+    </div>
+
+    <script src="/js/app.js"></script>
+    <script src="/js/db.js"></script>
+    <script src="/js/auth.js"></script>
+    <script src="/js/uiRecipes.js"></script>
+    <script src="/js/index.js"></script>
+</body>
+</html>

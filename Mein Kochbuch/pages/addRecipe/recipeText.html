@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <script src="https://www.gstatic.com/firebasejs/7.9.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.9.1/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.9.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.9.1/firebase-storage.js"></script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Mein Kochbuch</title>
+    <!-- materialize icons, css and js -->
+    <link type="text/css" href="/css/materialize.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link type="text/css" href="/css/ownStyles.css" rel="stylesheet">
+    <script type="text/javascript" src="/js/materialize.min.js"></script>
+    <link rel="manifest" href="/manifest.json">
+    <!-- IOS support / safari -->
+    <link rel="apple-touch-icon" href="/icons/icon-72x72.png">
+    <link rel="apple-touch-icon" href="/icons/icon-96x96.png">
+    <link rel="apple-touch-icon" href="/icons/icon-128x128.png">
+    <link rel="apple-touch-icon" href="/icons/icon-144x144.png">
+    <link rel="apple-touch-icon" href="/icons/icon-152x152.png">
+    <link rel="apple-touch-icon" href="/icons/icon-192x192.png">
+    <link rel="apple-touch-icon" href="/icons/icon-384x384.png">
+    <link rel="apple-touch-icon" href="/icons/icon-512x512.png">
+    <!-- Theme color -->
+    <meta name="apple-mobile-web-app-status-bar" content="#aa7700">
+    <meta name="theme-color" content="#FFE1C4">
+</head>
+<body class="white">
+    <!-- Top navigation -->
+    <nav class="z-depth-1" style="background: #F9FFC6;">
+        <div class="new-wrapper container">
+            Rezept erstellen         
+        </div>
+    </nav>
+
+    <!-- Help Buttons -->
+    <div id="helpButton">
+        <a ata-html="true" class="waves-effect waves-light btn tooltipped" data-position="top" 
+        style="font-size: 20px; background-color: #EC6651;" data-tooltip=
+        "Drücken Sie auf die Textfläche, damit Sie Ihr Rezept eintippen können.<br/>
+        Wenn Sie fertig getippt haben, drücken Sie auf 'Rezept hochladen' um es hochzuladen.">
+            <i class="material-icons right">help</i>Hilfe</a>
+    </div> 
+
+    <form class="formUploadText" action="/pages/index.html">
+        <!-- Text area for recipe -->
+        <div class="row">
+            <div class="add-recipe container section">
+                <div class="input-field" style="margin-top: 15px;">
+                    <i class="material-icons prefix" style="margin-top: 10px;">mode_edit</i>
+                    <label for="titleRcipe" id="titleRecipe" style="font-size: 30px; color:  rgb(29, 29, 29);"></label>    
+                </div>
+                <div class="row">
+                    <div class="input-field" style="margin-top: 80px;">
+                        <textarea id="textRecipe" for="textRecipe" 
+                        placeholder="Hier können Sie die Zutaten und die Zubereitung Ihres Rezeptes eintippen. Nachdem Sie fertig eingetippt haben, können Sie es durch das Drücken auf 'Rezept hochladen' erstellen."></textarea>
+                    </div>
+                </div>
+            </div>
+
+        <!-- Upload or Cancel Recipe -->
+        <div class="btn-group" style="margin-left: 70px;">
+        <button id="hochladenButton" type="submit" class="button" style="background-color: #b08cff;">Rezept hochladen</button>
+    </form>
+        <form action="/pages/addRecipe/recipes.html">
+            <button id="zurueckButton" class="button" style="background-color: #dedede; color: black;">
+                <i class="material-icons">arrow_back</i> Zurück</button>
+        </form>
+        </div>
+        <p style="clear:both"></p>
+    </div>
+    
+    <script src="/js/app.js"></script>
+    <script src="/js/uiRecipeText.js"></script>
+    <script src="/js/db.js"></script>
+    <script src="/js/auth.js"></script>
+    <script src="/js/index.js"></script>
+</body>
+</html>

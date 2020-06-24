@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <script src="https://www.gstatic.com/firebasejs/7.9.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.9.1/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.9.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.9.1/firebase-storage.js"></script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Mein Kochbuch</title>
+    <!-- materialize icons, css and js -->
+    <link type="text/css" href="/css/materialize.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link type="text/css" href="/css/ownStyles.css" rel="stylesheet">
+    <script type="text/javascript" src="/js/materialize.min.js"></script>
+    <link rel="manifest" href="/manifest.json">
+    <!-- IOS support / safari -->
+    <link rel="apple-touch-icon" href="/icons/icon-72x72.png">
+    <link rel="apple-touch-icon" href="/icons/icon-96x96.png">
+    <link rel="apple-touch-icon" href="/icons/icon-128x128.png">
+    <link rel="apple-touch-icon" href="/icons/icon-144x144.png">
+    <link rel="apple-touch-icon" href="/icons/icon-152x152.png">
+    <link rel="apple-touch-icon" href="/icons/icon-192x192.png">
+    <link rel="apple-touch-icon" href="/icons/icon-384x384.png">
+    <link rel="apple-touch-icon" href="/icons/icon-512x512.png">
+    <!-- Theme color -->
+    <meta name="apple-mobile-web-app-status-bar" content="#aa7700">
+    <meta name="theme-color" content="#FFE1C4">
+</head>
+<body class="white">
+
+    <!-- Top navigation -->
+    <nav class="z-depth-1" style="background: #F9FFC6;">
+        <div class="new-wrapper container">
+            Rezept erstellen         
+        </div>
+    </nav>
+
+    <!-- Help Buttons -->
+    <div id="helpButton">
+            <a ata-html="true" class="waves-effect waves-light btn tooltipped" data-position="top" 
+            style="font-size: 20px; background-color: #EA7A69;" data-tooltip=
+            "Drücken Sie auf 'zum Beispiel: Apfelkuchen', </br> um den Titel einzugeben.">
+                <i class="material-icons right">help</i>Hilfe</a>
+            <br/>
+            <a ata-html="true" class="waves-effect waves-light btn tooltipped" data-position="top" 
+            style="font-size: 20px; margin-top: 125px; background-color: #EA7A69;" data-tooltip=
+            "Um ein Rezept zu erstellen haben Sie 3 Möglichkeiten: <br/><br/> 
+            1.) Hinzufügen als Text, indem Sie auf die <b>erste</b> graue Fläche drücken. <br/> 
+            2.) Hinzufügen als eine Sprachaufnahme, indem Sie auf die <b>zweite</b> graue Fläche drücken. <br/> 
+            3.) Hinzufügen als Bild, indem Sie auf die <b>dritte</b> graue Fläche drücken.">
+                <i class="material-icons right">help</i>Hilfe </a>
+    </div> 
+
+    <!-- Modal Structure -->
+    <div id="modalTitle" class="modal">
+        <div class="modal-content">
+        <h4><b>Titel vergessen!</b></h4><hr>
+        <p><h4>Bitte geben Sie den Titel an, bevor sie weitermachen.</h4></p>
+        </div>
+        <div class="modal-footer">
+            <center>
+                <button class="btn-large modal-close grey">OKAY</button>
+            </center>
+        </div>
+    </div>
+
+    <div class="add-recipe container section">
+        <!-- Title -->
+        <div class="input-field" style="margin-top: 45px;">
+            <input placeholder="zum Beispiel: Apfelkuchen" id="title" type="text" class="validate" style="font-size: 30px; margin-top: 35px;"/>
+            <label for="title" style="font-size: 40px; color: rgb(29, 29, 29);">1.) Geben Sie Ihrem Rezept einen Titel:</label>
+        </div>
+
+        <!-- Recipe -->
+        <div class="input-field" style="margin-top: 45px;">
+                <label for="titleRecipe" style="font-size: 33px; color: rgb(29, 29, 29);">2.) Rezepterstellung:</label>    
+        </div>
+
+        <div class="createRecipe" style="position: absolute; z-index: 1; width: 70%;">
+            <div class="row" style="text-align: center; margin-top: 80px;">
+                <div class="col s4 m4">
+                    <form action="/pages/addRecipe/recipeText.html" >
+                        <button class="button2" type="submit" name="action" value="Click" onclick="return passTitle();">Rezept als eine <b>Texteingabe</b> hinzufügen. <br/><br/> 
+                        <i class="medium material-icons">create</i></button> 
+                    </form>
+                </div>
+                <div class="col s4 m4">
+                    <form action="/pages/addRecipe/recipeRecord.html" >
+                        <button class="button2" type="submit" name="action" value="Click" onclick="return passTitle();">Rezept als eine <b>Sprachaufnahme</b> hinzufügen. <br/><br/> 
+                           <i class="medium material-icons">record_voice_over</i></button> 
+                    </form>
+                </div>
+                <div class="col s4 m4">
+                <form action="/pages/addRecipe/recipeImage.html" >
+                        <button class="button2" type="submit" name="action" value="Click" onclick="return passTitle();">Rezept als <br/><b>Bild(er)</b><br/> hinzufügen.<br/><br/> 
+                           <i class="medium material-icons">add_a_photo</i></button> 
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Dots -->
+        <span class="dot" style="position: absolute; z-index: 2; margin-top: 160px; margin-left: 255px;">oder</span>
+        <span class="dot" style="position: absolute; z-index: 2; margin-top: 160px; margin-left: 555px;">oder</span>
+
+        <br/><br/><br/>
+    </div>
+
+    <!-- Cancel Recipe -->
+    <form action="/pages/index.html">
+        <button class="button3" style="background-color: #dedede; color: black; margin-top: 330px; margin-bottom: 40px; margin-left: 225px;">
+            <i class="material-icons">arrow_back</i> Zurück</button>
+    </form>
+    
+    <script src="/js/app.js"></script>
+    <script src="/js/uiRecipes.js"></script>
+    <script src="/js/auth.js"></script>
+    <script src="/js/db.js"></script>
+</body>
+</html>

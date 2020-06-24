@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <script src="https://www.gstatic.com/firebasejs/7.9.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.9.1/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.9.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.9.1/firebase-storage.js"></script>
+    <script src="https://cdn.rawgit.com/mattdiamond/Recorderjs/08e7abd9/dist/recorder.js"></script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Mein Kochbuch</title>
+    <!-- materialize icons, css and js -->
+    <link type="text/css" href="/css/materialize.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link type="text/css" href="/css/ownStyles.css" rel="stylesheet">
+    <script type="text/javascript" src="/js/materialize.min.js"></script>
+    <link rel="manifest" href="/manifest.json">
+    <!-- IOS support / safari -->
+    <link rel="apple-touch-icon" href="/icons/icon-72x72.png">
+    <link rel="apple-touch-icon" href="/icons/icon-96x96.png">
+    <link rel="apple-touch-icon" href="/icons/icon-128x128.png">
+    <link rel="apple-touch-icon" href="/icons/icon-144x144.png">
+    <link rel="apple-touch-icon" href="/icons/icon-152x152.png">
+    <link rel="apple-touch-icon" href="/icons/icon-192x192.png">
+    <link rel="apple-touch-icon" href="/icons/icon-384x384.png">
+    <link rel="apple-touch-icon" href="/icons/icon-512x512.png">
+    <!-- Theme color -->
+    <meta name="apple-mobile-web-app-status-bar" content="#aa7700">
+    <meta name="theme-color" content="#FFE1C4">
+</head>
+<body class="white">
+    
+    <!-- Top navigation -->
+    <nav class="z-depth-1" style="background: #F9FFC6;">
+        <div class="new-wrapper container">
+            Rezept erstellen         
+        </div>
+    </nav>
+
+    <!-- Help Buttons -->
+    <div id="helpButton">
+        <a ata-html="true" class="waves-effect waves-light btn tooltipped" data-position="right" style="font-size: 20px; background-color: #EC6651;" data-tooltip="Hier können Sie Ihr Rezept durch eine <b>Tonaufnahme</b> aufzeichnen,<br/> indem Sie zuerst auf <b>'Aufnahme starten'</b> drücken. <br/>Sprechen Sie einfach Ihr Rezept gegen das Gerät.<br/> Nachdem Sie fertig damit sind, drücken Sie auf <b>'Aufnahme stoppen'</b>.<br/> Dadurch stoppen Sie Ihre Aufnahme.">
+            <i class="material-icons right">help</i>Hilfe</a>
+    </div> 
+
+    <!-- Text area for recipe -->
+    <form class="formUploadRecord" action="/pages/index.html">
+        <div class="row">
+            <div class="add-recipe container section" style="margin-top: 30px;">
+                <label for="titleRcipe" style="font-size: 30px; color:  rgb(29, 29, 29);">Hier können Sie Ihr Rezept aufnehmen:</label> 
+                <div style="margin-top: 30px;" >
+                    <button class="button2" id="recordButton" style="margin-left: 100px; margin-right: 90px; font-size: 35px; padding-top: 50px; padding-bottom: 50px;">
+                        Aufnahme<br/> starten<br/><br/>
+                        <i class="large material-icons">record_voice_over</i>
+                    </button>
+                    <button class="button2" id="stopButton" style="font-size: 35px; padding-top: 50px; padding-bottom: 50px;" disabled>
+                        Aufnahme stoppen<br/><br/>
+                        <i class="large material-icons">stop</i>
+                    </button>
+                    <div class="recordStarted" style="margin-top: 30px; font-size: 30px;">
+                    </div><br/>
+                    <div class="divider"></div>
+                    <div style="margin-top: 30px; font-size: 30px;"><b>Ihre Aufnahmen:</b></div>
+                    <div id="noRecords" style="font-size: 30px;">Keine Aufnahme vorhanden.</div>
+                    <ol id="recordingsList" ></ol>
+                </div>
+            </div>
+            
+            <!-- Cancel and Upload-->
+            <div class="btn-group" style="margin-left: 70px; margin-top: 80px;">
+                <button id="hochladenButton" class="button" style="background-color: #b08cff;">Rezept hochladen</button>
+    </form>
+            <form action="/pages/recipes.html">
+                <button id="zurueckButton" class="button" style="background-color: #dedede; color: black;">
+                    <i class="material-icons">arrow_back</i> Zurück</button>
+            </form>
+        </div>
+        <p style="clear:both"></p>
+        </div>
+        
+    <script src="/js/app.js"></script>
+    <script src="/js/db.js"></script>
+    <script src="/js/auth.js"></script>
+    <script src="/js/uiRecipeRecord.js"></script>
+</body>
+</html>

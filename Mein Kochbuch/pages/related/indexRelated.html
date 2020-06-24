@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <script src="https://www.gstatic.com/firebasejs/7.6.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.6.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.6.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.6.0/firebase-storage.js"></script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Mein Kochbuch</title>
+    <!-- materialize icons, css and js -->
+    <link type="text/css" href="/css/materialize.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link type="text/css" href="/css/ownStyles.css" rel="stylesheet">
+    <script type="text/javascript" src="/js/materialize.min.js"></script>
+    <link rel="manifest" href="/manifest.json">
+    <!-- IOS support / safari -->
+    <link rel="apple-touch-icon" href="/icons/icon-72x72.png">
+    <link rel="apple-touch-icon" href="/icons/icon-96x96.png">
+    <link rel="apple-touch-icon" href="/icons/icon-128x128.png">
+    <link rel="apple-touch-icon" href="/icons/icon-144x144.png">
+    <link rel="apple-touch-icon" href="/icons/icon-152x152.png">
+    <link rel="apple-touch-icon" href="/icons/icon-192x192.png">
+    <link rel="apple-touch-icon" href="/icons/icon-384x384.png">
+    <link rel="apple-touch-icon" href="/icons/icon-512x512.png">
+    <!-- Theme color -->
+    <meta name="apple-mobile-web-app-status-bar" content="#aa7700">
+    <meta name="theme-color" content="#FFE1C4">
+</head>
+<body class="white">    
+
+    <!-- Top navigation -->
+    <nav class="z-depth-1" style="background: rgb(183, 170, 255);">
+        <div class="new-wrapper container">
+            Tinas Konto        
+        </div>
+    </nav>
+    
+
+    <!-- Modal textmessage -->
+    <form id="textmsg-form">
+        <div id="modal-textmsg" class="modal">
+            <div class="modal-content">
+                <h4><b>Textnachricht verfassen</b></h4>
+                    <div class="input-field" style="margin-top: 20px;">
+                        <input type="text" style="margin-top: 20px;" id="msg" required />
+                        <label for="msg-label"><h5>Deine Nachricht</h5></label>
+                    </div>
+                    <button class="button4" type="submit"><b>Senden</b></button>
+            </div>
+        </div>
+    </form>
+
+    <div class="row center-cols center-align" style="margin-top: 40px;"></div>
+
+    <script src="/js/app.js"></script>
+    <script src="/js/db.js"></script>
+    <script src="/js/auth.js"></script>
+    <script src="/js/uiIndexRelated.js"></script>
+</body>
+</html>
